@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th="http://www.w3.org/1999/xhtml">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Customers</h3>
+<p>
+    <a th:href="@{/create}">
+        Add new product
+    </a>
+</p>
+
+</div>
+<table id = "products">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${list}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getPrice()}"></td>
+        <td th:text="${row.getQuantity()}"></td>
+        <td th:text="${row.getCategory()}"></td>
+        <td><a th:href="@{/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a class="delete-record" th:id="${row.getId()}">delete</a></td>
+        <td><a th:href="@{/{id}/view(id=${row.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<div id="modal-del" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Click Delete or close modal</p>
+            </div>
+            <div class="modal-footer">
+                <button id="delete" data-id="4" value="" data-name-user="" type="button" class="btn btn-primary">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let idRecord;
+    $(document).on('click', '.delete-record', function () {
+        idRecord = $(this).attr('id');
+        console.log(124, idRecord);
+        $('#delete').attr('data-id', idRecord)
+        $('#modal-del').modal('show');
+    });
+    $(document).on('click', '#delete', function () {
+        let id = $(this).data('id');
+
+        console.log(23124, id);
+        $.ajax({
+            type: 'DELETE',
+            url: `/${id}`,
+            success: function (response) {
+                console.log(7777, response);
+                $('#modal-del').modal('hide');
+                $(`#${id}`).parent().parent().remove();
+            }
+        })
+    })
+</script>
+</html>
