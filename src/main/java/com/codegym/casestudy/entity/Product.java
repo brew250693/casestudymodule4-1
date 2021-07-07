@@ -23,7 +23,7 @@ public class Product {
     @NotNull
     private Long price, quantity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
 }

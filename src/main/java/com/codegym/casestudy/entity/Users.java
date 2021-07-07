@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,9 +21,5 @@ public class User {
     private String fisrtName, lastName, phone, address, username, password;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_roles",
-//            joinColumns = { @JoinColumn(name = "user_id", nullable = false, updatable = false) },
-//            inverseJoinColumns = { @JoinColumn(name = "role_id", nullable = false, updatable = false) })
-//    @OrderBy("name")
     private Role role;
 }
