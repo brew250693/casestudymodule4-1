@@ -33,28 +33,10 @@ public class AppUser {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Pattern(regexp = "(^$|[0-9]{10,12})")
-    private String phoneNumber;
-
-    private String gender;
-
-    private Date dateOfBirth;
-
-    private String avatar;
-
     @ManyToOne
     private AppRole appRole;
 
-    public AppUser(String firstName, String lastName, @Email String email, @Pattern(regexp = "(^$|[0-9]{10,12})") String phoneNumber, String gender, Date dateOfBirth, String username, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.username = username;
-        this.password = password;
-    }
+
 }
 
 

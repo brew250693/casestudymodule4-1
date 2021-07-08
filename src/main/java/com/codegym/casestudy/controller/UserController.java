@@ -55,9 +55,6 @@ public class UserController {
         user.setFirstName(userForm.getFirstName());
         user.setLastName(userForm.getLastName());
         user.setEmail(userForm.getEmail());
-        user.setPhoneNumber(userForm.getPhoneNumber());
-        user.setGender(userForm.getGender());
-        user.setDateOfBirth(userForm.getDateOfBirth());
         MultipartFile multipartFile = userForm.getAvatar();
         String fileName = multipartFile.getOriginalFilename();
         String fileUpload = environment.getProperty("upload.path").toString();
@@ -66,7 +63,6 @@ public class UserController {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        user.setAvatar(fileName);
         userService.save(user);
         return new RedirectView("");
     }
