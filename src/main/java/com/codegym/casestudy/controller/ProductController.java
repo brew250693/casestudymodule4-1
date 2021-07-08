@@ -26,7 +26,6 @@ public class ProductController {
         return modelAndView;
     }
 
-
     @ModelAttribute("categories")
     public List<Category> categories(){
         return (List<Category>) categoryService.findAll();
