@@ -1,11 +1,11 @@
 package com.codegym.casestudy.entity;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,8 +18,9 @@ public class Users {
     private Long id;
 
     @NotNull
-    private String fisrtName, lastName, phone, address, username, password;
+    private String email, password, firstName, lastName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Role role;
-}
+    }
+
+
+
