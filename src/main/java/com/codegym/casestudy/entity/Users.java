@@ -20,7 +20,7 @@ public class Users {
     @NotNull
     private String email, password, firstName, lastName;
 
-    }
+}
 
 
 
