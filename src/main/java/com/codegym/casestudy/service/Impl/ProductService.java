@@ -1,4 +1,4 @@
-package com.codegym.casestudy.service;
+package com.codegym.casestudy.service.Impl;
 
 import com.codegym.casestudy.entity.Product;
 import com.codegym.casestudy.repository.IProductRepository;

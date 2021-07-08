@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>Modify Customer</h3>
+<p>
+    <a th:href="@{/profile}">
+        Back to customer list
+    </a>
+</p>
+<div id="form">
+    <form th:object="${user}" enctype="multipart/form-data" action="/users/edit"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}" name="id"/>
+        <input type="hidden" th:field="*{username}" name="username"/>
+        <input type="hidden" th:field="*{password}" name="password"/>
+        <div>
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}" name="firstName"/>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" th:field="*{lastName}" name="lastName"/>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="text" th:field="*{gender}" name="gender"/>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" th:field="*{email}" name="email"/>
+        </div>
+        <div>
+            <label>Phone number</label>
+            <input type="text" th:field="*{phoneNumber}" name="phoneNumber"/>
+        </div>
+        <div>
+            <label>Avartar</label>
+            <input type="file" th:field="*{avatar}" name="avatar"/>
+        </div>
+
+        <input type="submit" value="Modify"></input>
+    </form>
+</div>
+
+</body>
+</html>

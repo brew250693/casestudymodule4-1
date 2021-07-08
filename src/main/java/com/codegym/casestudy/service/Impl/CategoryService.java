@@ -1,12 +1,9 @@
-package com.codegym.casestudy.service;
+package com.codegym.casestudy.service.Impl;
 
 import com.codegym.casestudy.entity.Category;
-import com.codegym.casestudy.repository.ICategoryRepo;
-import com.codegym.casestudy.repository.IProductRepository;
+import com.codegym.casestudy.repository.ICategoryRepository;
 import com.codegym.casestudy.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,7 +13,8 @@ public class CategoryService implements ICategoryService {
 
 
     @Autowired
-    private ICategoryRepo repository;
+    private ICategoryRepository repository;
+
     @Override
     public Iterable<Category> findAll() {
         return repository.findAll();
@@ -29,11 +27,11 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public void save(Category category) {
-repository.save(category);
+        repository.save(category);
     }
 
     @Override
     public void remove(Long id) {
-repository.deleteById(id);
+        repository.deleteById(id);
     }
 }
