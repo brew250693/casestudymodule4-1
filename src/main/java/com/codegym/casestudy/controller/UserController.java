@@ -1,6 +1,6 @@
 package com.codegym.casestudy.controller;
 
-import com.codegym.casestudy.entity.AppUser;
+import com.codegym.casestudy.entity.User;
 import com.codegym.casestudy.entity.AppUserForm;
 import com.codegym.casestudy.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +26,13 @@ public class UserController {
     Environment environment;
 
     @ModelAttribute("user")
-    public AppUser appUser(){
+    public User appUser(){
         return userService.getCurrentUser();
     }
 
     @GetMapping("/{id}")
     public ModelAndView getUserInfo(@PathVariable("id") Long id){
-        AppUser user = userService.findById(id).get();
+        User user = userService.findById(id).get();
         ModelAndView modelAndView = new ModelAndView("profile");
         modelAndView.addObject("user", user);
         return modelAndView;
@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/{id}/edit")
     public ModelAndView showFormEdit(@PathVariable("id") Long id){
-        AppUser user = userService.findById(id).get();
+        User user = userService.findById(id).get();
         ModelAndView modelAndView = new ModelAndView("editUser");
         modelAndView.addObject("user", user);
         return modelAndView;
@@ -49,7 +49,7 @@ public class UserController {
     @PostMapping("/edit")
     public RedirectView editUser(@ModelAttribute AppUserForm userForm){
 //        AppUser user = new AppUser(userForm.getFirstName(),userForm.getLastName(),userForm.getEmail(),userForm.getPhoneNumber(),userForm.getGender(),userForm.getDateOfBirth(), userForm.getUsername(), userForm.getPassword());
-        AppUser user = userService.findById(userForm.getId()).get();
+        User user = userService.findById(userForm.getId()).get();
         user.setUsername(userForm.getUsername());
         user.setPassword(userForm.getPassword());
         user.setFirstName(userForm.getFirstName());

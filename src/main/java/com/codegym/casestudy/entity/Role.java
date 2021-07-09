@@ -1,5 +1,6 @@
 package com.codegym.casestudy.entity;
 
+import com.codegym.casestudy.common.ERole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,17 +13,14 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AppRole implements GrantedAuthority {
+public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private ERole name;
 
-
-    @Override
-    public String getAuthority() {
-        return this.name;
-    }
 }
 

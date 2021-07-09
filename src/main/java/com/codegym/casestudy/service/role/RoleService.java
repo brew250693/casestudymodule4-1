@@ -1,6 +1,6 @@
 package com.codegym.casestudy.service.role;
 
-import com.codegym.casestudy.entity.AppRole;
+import com.codegym.casestudy.entity.Role;
 import com.codegym.casestudy.repository.IRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,22 +13,22 @@ public class RoleService implements IRoleService{
     private IRoleRepository repository;
 
     @Override
-    public AppRole findByName(String name) {
+    public Role findByName(String name) {
         return repository.findByName(name);
     }
 
     @Override
-    public Iterable<AppRole> findAll() {
+    public Iterable<Role> findAll() {
         return null;
     }
 
     @Override
-    public Optional<AppRole> findById(Long id) {
+    public Optional<Role> findById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(AppRole appRole) {
+    public void save(Role role) {
 
     }
 

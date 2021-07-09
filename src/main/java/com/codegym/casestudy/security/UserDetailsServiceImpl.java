@@ -1,6 +1,6 @@
 package com.codegym.casestudy.security;
 
-import com.codegym.casestudy.entity.AppUser;
+import com.codegym.casestudy.entity.User;
 import com.codegym.casestudy.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        AppUser byUsername = userRepository.findByUsername(s);
+        User byUsername = userRepository.findByUsername(s);
         if (byUsername == null) {
             throw new UsernameNotFoundException("User with does not exists");
         }

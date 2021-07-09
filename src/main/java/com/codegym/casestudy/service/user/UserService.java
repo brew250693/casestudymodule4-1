@@ -1,6 +1,6 @@
 package com.codegym.casestudy.service.user;
 
-import com.codegym.casestudy.entity.AppUser;
+import com.codegym.casestudy.entity.User;
 import com.codegym.casestudy.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,17 +21,17 @@ public class UserService implements IUserService {
     private IUserRepository userRepository;
 
     @Override
-    public Iterable<AppUser> findAll() {
+    public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public Optional<AppUser> findById(Long id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
     @Override
-    public void save(AppUser user) {
+    public void save(User user) {
         userRepository.save(user);
     }
 
@@ -42,9 +42,9 @@ public class UserService implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser user = this.getUserByUsername(username);
+        User user = this.getUserByUsername(username);
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(user.getAppRole());
+        authorities.add(user.getRole());
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
@@ -56,15 +56,15 @@ public class UserService implements IUserService {
 
 
     @Override
-    public AppUser getUserByUsername(String username) {
+    public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
     @Override
-    public AppUser getCurrentUser() {
+    public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
-        AppUser user = userRepository.findByUsername(userName);
+        User user = userRepository.findByUsername(userName);
         return user;
     }
 }

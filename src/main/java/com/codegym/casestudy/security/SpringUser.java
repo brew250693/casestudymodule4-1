@@ -1,18 +1,18 @@
 package com.codegym.casestudy.security;
 
-import com.codegym.casestudy.entity.AppUser;
+import com.codegym.casestudy.entity.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 public class SpringUser extends org.springframework.security.core.userdetails.User {
 
-    private AppUser user;
+    private User user;
 
-    public SpringUser(AppUser user) {
+    public SpringUser(User user) {
         super(user.getUsername(), user.getPassword(), AuthorityUtils.createAuthorityList("user"));
         this.user = user;
     }
 
-    public AppUser getUser() {
+    public User getUser() {
         return user;
     }
 }
