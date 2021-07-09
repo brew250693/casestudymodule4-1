@@ -37,7 +37,7 @@ public class AppUserForm {
     private Date dateOfBirth;
 
     @ManyToOne
-    private AppRole appRole;
+    private Role role;
 
     @Transient
     private MultipartFile avatar;
