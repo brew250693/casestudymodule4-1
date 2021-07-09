@@ -6,10 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
-    @Query (value = "select * from app_user join friend on app_user.id=friend.to_id where friend.from_id=?;",nativeQuery = true)
-    List<User> getListFriend(Long id);
+    Optional<User> findByUsername(String username);
+    Boolean existsByUsername(String username);
+    Boolean existsByEmail(String email);
 }

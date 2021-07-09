@@ -1,4 +1,4 @@
-package com.codegym.casestudy.security;
+package com.codegym.casestudy.service.Impl;
 
 import com.codegym.casestudy.entity.User;
 import com.codegym.casestudy.repository.IUserRepository;
@@ -7,19 +7,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
-    private IUserRepository userRepository;
+@Autowired
+    IUserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
-        User byUsername = userRepository.findByUsername(s);
-        if (byUsername == null) {
-            throw new UsernameNotFoundException("User with does not exists");
-        }
-        return new SpringUser(byUsername);
+    @Transactional
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not Found with userame: " + username));
+           return UserDetailsImpl.build(user);
     }
 }
