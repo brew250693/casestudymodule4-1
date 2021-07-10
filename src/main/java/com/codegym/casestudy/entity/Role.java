@@ -1,5 +1,6 @@
 package com.codegym.casestudy.entity;
 
+import com.codegym.casestudy.common.ERole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

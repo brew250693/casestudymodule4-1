@@ -1,6 +1,6 @@
 package com.codegym.casestudy.controller;
 
-import com.codegym.casestudy.entity.Orders;
+import com.codegym.casestudy.entity.CartItem;
 import com.codegym.casestudy.service.cart.CartService;
 import com.codegym.casestudy.service.session.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,10 @@ public class CartController {
 
     @GetMapping("/cart/update/{id}")
     public ModelAndView update(@PathVariable Long id) {
-        Optional<Orders> orders = cartService.findById(id);
-        if (orders.isPresent()) {
+        Optional<CartItem> cartItem = cartService.findById(id);
+        if (cartItem.isPresent()) {
             ModelAndView modelAndView = new ModelAndView("/cart");
-            modelAndView.addObject("cart", orders.get());
+            modelAndView.addObject("cart", cartItem.get());
             return modelAndView;
         } else {
             return new ModelAndView("/product/error.404");
