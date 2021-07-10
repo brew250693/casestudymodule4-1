@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Shopping Cart</h1>
+<hr />
+<table border="1">
+    <tr>
+<!--        <th>No.</th>-->
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+    </tr>
+<!--    <div th:with="no = ${1}"></div>-->
+    <th:block th:each="product : ${cartItems}">
+        <form th:action="@{/shoppingCarts/update}">
+        <tr>
+            <td th:text="${product.name}"></td>
+
+            <td>
+                <input type="number" th:value="*{product.quantity}" name="quantity"
+                       />
+            </td>
+            <td th:text="${product.totalPrice}"></td>
+
+            <td><a th:href="@{/shoppingCart/remove/__${product.id}__ }">Remove</a></td>
+
+        </tr>
+        </form>
+    </th:block>
+
+</table>
+</body>
+</html>

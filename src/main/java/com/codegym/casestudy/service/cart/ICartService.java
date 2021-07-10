@@ -3,8 +3,20 @@ package com.codegym.casestudy.service.cart;
 import com.codegym.casestudy.entity.CartItem;
 import com.codegym.casestudy.service.IGeneralService;
 
-public interface ICartService extends IGeneralService<CartItem> {
-    Long getCount();
+import java.util.Collection;
 
-    Long getAmount();
+public interface ICartService {
+    void add(CartItem item);
+
+    void remove(long id);
+
+    Collection<CartItem> getCartItems();
+
+    void clear();
+
+    void update(long id, long quantity);
+
+    double getAmount();
+
+    int getCount();
 }
