@@ -9,21 +9,19 @@
 <hr />
 <table border="1">
     <tr>
-<!--        <th>No.</th>-->
         <th>Name</th>
-        <th>Price</th>
         <th>Quantity</th>
-        <th>Category</th>
+        <th>Price</th>
+
     </tr>
-<!--    <div th:with="no = ${1}"></div>-->
     <th:block th:each="product : ${cartItems}">
-        <form th:action="@{/shoppingCarts/update}">
+        <form th:action="@{/shoppingCarts/update}" method="post">
         <tr>
             <td th:text="${product.name}"></td>
 
             <td>
-                <input type="number" th:value="*{product.quantity}" name="quantity"
-                       />
+                <input type="hidden" th:value="*{product.id}" name = "id"/>
+                <input type="number" th:value="*{product.quantity}" name="quantity"/>
             </td>
             <td th:text="${product.totalPrice}"></td>
 
@@ -32,7 +30,8 @@
         </tr>
         </form>
     </th:block>
-
 </table>
+<a th:href="@{/list-cart}">Product List</a>
+<a th:href="@{/shoppingCart/checkout}">Checkout</a>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -34,9 +35,13 @@ public class ShoppingCartController {
     @GetMapping("add/{id}")
     public String add(@PathVariable("id")Long id){
         Optional<Product> product = productService.findById(id);
+        CartItem item = new CartItem();
         if(product != null) {
-            CartItem item = new CartItem();
-            BeanUtils.copyProperties(product, item);
+            item.setId(product.get().getId());
+            item.setName(product.get().getName());
+//            item.setQuantity(product.get().getQuantity());
+            item.setTotalPrice(product.get().getPrice());
+//            BeanUtils.copyProperties(product, item);
             item.setQuantity(1L);
             cartService.add(item);
 
@@ -45,12 +50,15 @@ public class ShoppingCartController {
     }
 
 
-    @GetMapping("remove")
-    public String remove(){
+    @GetMapping("remove/{id}")
+    public String remove(@PathVariable("id")Long id){
+        cartService.remove(id);
         return "redirect:/shoppingCart/list-cart";
     }
-    @GetMapping("update")
-    public String update(){
+    @GetMapping("update/")
+    public String update(@RequestParam("id") Long id,
+                         @RequestParam("quantity")Long quantity){
+        cartService.update(id,quantity);
         return "redirect:/shoppingCart/list-cart";
     }
     @GetMapping("clear")
