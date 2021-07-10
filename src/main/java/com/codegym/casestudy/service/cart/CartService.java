@@ -1,6 +1,6 @@
 package com.codegym.casestudy.service.cart;
 
-import com.codegym.casestudy.entity.Orders;
+import com.codegym.casestudy.entity.CartItem;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -10,21 +10,21 @@ import java.util.Set;
 
 @Service
 public class CartService implements ICartService {
-    public static Map<Long, Orders> ordersMap = new HashMap<>();
+    public static Map<Long, CartItem> ordersMap = new HashMap<>();
 
     @Override
-    public Iterable<Orders> findAll() {
+    public Iterable<CartItem> findAll() {
         return ordersMap.values();
     }
 
     @Override
-    public Optional<Orders> findById(Long id) {
+    public Optional<CartItem> findById(Long id) {
         return Optional.ofNullable(ordersMap.get(id));
     }
 
     @Override
-    public void save(Orders orders) {
-        ordersMap.put(orders.getId(), orders);
+    public void save(CartItem cartItem) {
+        ordersMap.put(cartItem.getId(), cartItem);
     }
 
     @Override
