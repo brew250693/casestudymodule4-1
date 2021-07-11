@@ -7,12 +7,12 @@
 <body>
 <h1>Create product</h1>
 <p>
-    <a href="/list-product">Product list</a>
+    <a href="/admin/list-product">Product list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/create-product}" th:object="${products}" method="post">
+<form th:action="@{/admin/create-product}" th:object="${products}" method="post">
     <table>
         <tr>
             <td>Name:</td>

@@ -2,12 +2,9 @@ package com.codegym.casestudy.entity;
 
 import lombok.*;
 
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "username"),
