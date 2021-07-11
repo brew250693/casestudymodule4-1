@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/product-list")
     public ModelAndView showListProduct() {
-        ModelAndView modelAndView = new ModelAndView("/product-list");
+        ModelAndView modelAndView = new ModelAndView("user-product-list");
         modelAndView.addObject("products", productService.findAll());
         return modelAndView;
     }
@@ -28,7 +28,7 @@ public class UserController {
     public ModelAndView showListProduct(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
         if (product.isPresent()) {
-            ModelAndView modelAndView = new ModelAndView("/product-detail");
+            ModelAndView modelAndView = new ModelAndView("user-product-detail");
             modelAndView.addObject("products", product.get());
             return modelAndView;
         } else {

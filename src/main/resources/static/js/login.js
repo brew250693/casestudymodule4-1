@@ -17,15 +17,15 @@ function Login () {
 
         success: function (data){
             if(data.message!=null){
-                alert("Xin lỗi tài khoản dã bị khoá");
+                alert("Xin lỗi tài khoản đã bị khoá!");
             }
             else{
                 localStorage.setItem("userdata",JSON.stringify(data));
                 if(data.roles[0]=="ROLE_ADMIN"){
-                    window.location='adminHome.html';
+                    window.location='admin-home';
                 }
                 else{
-                    window.location='index.html';
+                    window.location='user-home';
                 }
                 alert("Xin chào " + username + " !");
             }

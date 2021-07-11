@@ -1,17 +1,11 @@
 package com.codegym.casestudy.controller;
 
-import com.codegym.casestudy.entity.CartItem;
 import com.codegym.casestudy.service.ICategoryService;
 import com.codegym.casestudy.service.IProductService;
-import com.codegym.casestudy.service.cart.CartService;
-import com.codegym.casestudy.service.session.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Optional;
-
 
 @Controller
 public class CartController {
