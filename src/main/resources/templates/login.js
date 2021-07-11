@@ -42,31 +42,6 @@ function Login () {
     event.preventDefault();
 };
 
-function check_login_logout(){
-    if(localStorage.getItem("userdata")!==null){
-        let header = document.getElementsByClassName("aa-head-top-nav-right");
-        let userdata = JSON.parse(localStorage.getItem("userdata"));
-
-        for (let i = 0; i < header.length; i++) {
-            header[i].innerHTML =
-                "<li>Xin chào "+ userdata.name + "!! "+"</li>"+
-                "<li class=\"hidden-xs\"><a href=\"javascript:checkShopByUser()\">My Shop</a></li>"+
-                "<li class=\"hidden-xs\"><a href=\"cart.html\">My Order</a></li>"+
-                "<li class=\"hidden-xs\"><a href=\"javascript:checkOutButton()\">Checkout</a></li>"+
-                "<li class=\"hidden-xs\"><a href=\"javascript:Logout()\">Logout</a></li>";
-        };
-        let headeradmin =  document.getElementsByClassName("aa-head-top-nav-right-admin");
-        for (let i = 0; i < headeradmin.length; i++) {
-            headeradmin[i].innerHTML =
-                "<li>Xin chào Admin: "+ userdata.name + "!! "+"</li>"+
-                "<li class=\"hidden-xs\"><a href=\"javascript:getAllUsers()\">Quản lý user</a></li>"+
-                "<li class=\"hidden-xs\"><a href=\"javascript:Logout()\">Logout</a></li>";
-        };
-
-        getOrderCartByUser(userdata.userName);
-    }
-};
-
 function Register () {
     let userName = $('#userName-register').val();
     let passWord = $('#passWord-register').val();
