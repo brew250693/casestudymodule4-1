@@ -9,8 +9,6 @@ public class ChangePassValidator implements Validator {
     @Autowired
     UserService userService;
 
-
-
     @Override
     public boolean supports(Class<?> clazz) {
         return false;
