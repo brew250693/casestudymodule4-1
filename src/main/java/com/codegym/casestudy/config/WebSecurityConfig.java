@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthTokenFilter authenticationJwtTokenFiler() {
         return new AuthTokenFilter();
     }
+
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception{
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
@@ -49,29 +50,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.cors().and().csrf().disable()
-//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//                .authorizeRequests().antMatchers("/api/auth/**", "/create-product", "/edit-product", "/delete-product", "/list-product").permitAll()
-//                .and()
-//                .authorizeRequests().antMatchers("/api/auth/**", "/create-category", "/edit-category", "/delete-category", "/list-category").permitAll()
-//                .antMatchers("/api/test/**").permitAll()
-//                .and()
-//                .authorizeRequests().and().formLogin().loginPage("/login").permitAll()
-//                .usernameParameter("username").passwordParameter("password")
-//                .failureForwardUrl("/login").defaultSuccessUrl("/successLogin", true)
-//                .and().rememberMe().key("rem-me-key").rememberMeParameter("remember")
-//                .rememberMeCookieName("rememberlogin").tokenValiditySeconds(1 * 24 * 60 * 60)
-//                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index");
-
         // TODO Auto-generated method stub
         http.csrf().disable();
 
         // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/index", "/login", "/my-account").permitAll();
+        http.authorizeRequests().antMatchers("/index", "/login").permitAll();
 
         http.authorizeRequests().antMatchers("/static/**", "/templates/**").permitAll();
 
+        http.authorizeRequests().antMatchers("/api/auth/**", "/admin/create-product", "/admin/edit-product", "/admin/delete-product", "/admin/list-product").permitAll()
+        .and()
+        .authorizeRequests().antMatchers("/api/auth/**", "/admin/create-category", "/admin/edit-category", "/admin/delete-category", "/admin/list-category").permitAll();
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
 
@@ -86,7 +75,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Ngoại lệ AccessDeniedException sẽ ném ra.
 
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403page");
-        // http.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(1296000);
         // Cấu hình cho Login Form.
         http.authorizeRequests().and().formLogin()
                 // .loginProcessingUrl("/login")
@@ -95,21 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username").passwordParameter("password")
                 // .failureUrl("/login")
                 .failureForwardUrl("/login").defaultSuccessUrl("/successLogin", true)
-
-//				.and().rememberMe().key("rem-me-key").rememberMeParameter("remember") // it is name of checkbox at login
-//																						// page
-//				.rememberMeCookieName("rememberlogin") // it is name of the cookie
-//				.tokenValiditySeconds(1 * 24 * 60 * 60) // remember for number of seconds
-
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index");
-
-        // Cấu hình Remember Me.
-//        http.authorizeRequests().and() //
-//                .rememberMe().tokenRepository(this.persistentTokenRepository()) //
-//                .tokenValiditySeconds(1 * 24 * 60 * 60); // 24h
     }
-
-//        http.addFilterBefore(authenticationJwtTokenFiler(), UsernamePasswordAuthenticationFilter.class);
-//    }
 }
 
