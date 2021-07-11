@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+</html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>E Store - eCommerce HTML Template</title>
@@ -16,11 +22,14 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/slick/slick.css" rel="stylesheet">
-        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="/lib/slick/slick.css" rel="stylesheet">
+        <link href="/lib/slick/slick-theme.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
 
     <body>
@@ -40,7 +49,7 @@
             </div>
         </div>
         <!-- Top bar End -->
-        
+
         <!-- Nav Bar Start -->
         <div class="nav">
             <div class="container-fluid">
@@ -53,15 +62,16 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a href="/" class="nav-item nav-link active">Trang chủ</a>
-                            <a href="/product-list" class="nav-item nav-link">Danh sách sản phẩm</a>
-                            <a href="/product-detail" class="nav-item nav-link">Chi tiết sản phẩm</a>
+                            <a href="/user/product-list" class="nav-item nav-link">Danh sách sản phẩm</a>
+                            <a href="/user/product-detail" class="nav-item nav-link">Chi tiết sản phẩm</a>
+                            <a href="/user/cart" class="nav-item nav-link">Giỏ hàng</a>
+                            <a href="/user/checkout" class="nav-item nav-link">Thanh toán</a>
                         </div>
                         <div class="navbar-nav ml-auto">
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tài khoản</a>
                                 <div class="dropdown-menu">
-                                    <a href="/login" class="dropdown-item">Đăng nhập</a>
-                                    <a href="/register" class="dropdown-item">Đăng ký</a>
+                                    <a href="/logout" class="dropdown-item">Đăng xuất</a>
                                 </div>
                             </div>
                         </div>
@@ -69,24 +79,38 @@
                 </nav>
             </div>
         </div>
-        <!-- Nav Bar End -->      
-        
+        <!-- Nav Bar End -->
+
         <!-- Bottom Bar Start -->
         <div class="bottom-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="/">
-                                <img src="img/logo.png" alt="Logo">
+                            <a href="user-home.html">
+                                <img src="/img/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="user">
+                            <a href="user/cart" class="btn cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>(0)</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Bottom Bar End -->       
-        
+        <!-- Bottom Bar End -->
+
         <!-- Main Slider Start -->
         <div class="header">
             <div class="container-fluid">
@@ -124,21 +148,21 @@
                     <div class="col-md-6">
                         <div class="header-slider normal-slider">
                             <div class="header-slider-item">
-                                <img src="img/slider-1.jpg" alt="Slider Image" />
+                                <img src="/img/slider-1.jpg" alt="Slider Image" />
                                 <div class="header-slider-caption">
                                     <p>Some text goes here that describes the image</p>
                                     <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
                                 </div>
                             </div>
                             <div class="header-slider-item">
-                                <img src="img/slider-2.jpg" alt="Slider Image" />
+                                <img src="/img/slider-2.jpg" alt="Slider Image" />
                                 <div class="header-slider-caption">
                                     <p>Some text goes here that describes the image</p>
                                     <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
                                 </div>
                             </div>
                             <div class="header-slider-item">
-                                <img src="img/slider-3.jpg" alt="Slider Image" />
+                                <img src="/img/slider-3.jpg" alt="Slider Image" />
                                 <div class="header-slider-caption">
                                     <p>Some text goes here that describes the image</p>
                                     <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
@@ -149,13 +173,13 @@
                     <div class="col-md-3">
                         <div class="header-img">
                             <div class="img-item">
-                                <img src="img/category-1.jpg" />
+                                <img src="/img/category-1.jpg" />
                                 <a class="img-text" href="">
                                     <p>Some text goes here that describes the image</p>
                                 </a>
                             </div>
                             <div class="img-item">
-                                <img src="img/category-2.jpg" />
+                                <img src="/img/category-2.jpg" />
                                 <a class="img-text" href="">
                                     <p>Some text goes here that describes the image</p>
                                 </a>
@@ -165,23 +189,23 @@
                 </div>
             </div>
         </div>
-        <!-- Main Slider End -->      
-        
+        <!-- Main Slider End -->
+
         <!-- Brand Start -->
         <div class="brand">
             <div class="container-fluid">
                 <div class="brand-slider">
-                    <div class="brand-item"><img src="img/brand-1.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-2.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-3.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-4.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-5.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-6.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-1.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-2.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-3.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-4.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-5.png" alt=""></div>
+                    <div class="brand-item"><img src="/img/brand-6.png" alt=""></div>
                 </div>
             </div>
         </div>
-        <!-- Brand End -->      
-        
+        <!-- Brand End -->
+
         <!-- Feature Start-->
         <div class="feature">
             <div class="container-fluid">
@@ -225,15 +249,15 @@
                 </div>
             </div>
         </div>
-        <!-- Feature End-->      
-        
+        <!-- Feature End-->
+
         <!-- Category Start-->
         <div class="category">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="category-item ch-400">
-                            <img src="img/category-3.jpg" />
+                            <img src="/img/category-3.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
@@ -241,13 +265,13 @@
                     </div>
                     <div class="col-md-3">
                         <div class="category-item ch-250">
-                            <img src="img/category-4.jpg" />
+                            <img src="/img/category-4.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
                         </div>
                         <div class="category-item ch-150">
-                            <img src="img/category-5.jpg" />
+                            <img src="/img/category-5.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
@@ -255,13 +279,13 @@
                     </div>
                     <div class="col-md-3">
                         <div class="category-item ch-150">
-                            <img src="img/category-6.jpg" />
+                            <img src="/img/category-6.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
                         </div>
                         <div class="category-item ch-250">
-                            <img src="img/category-7.jpg" />
+                            <img src="/img/category-7.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
@@ -269,7 +293,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="category-item ch-400">
-                            <img src="img/category-8.jpg" />
+                            <img src="/img/category-8.jpg" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
@@ -278,8 +302,8 @@
                 </div>
             </div>
         </div>
-        <!-- Category End-->       
-        
+        <!-- Category End-->
+
         <!-- Call to Action Start -->
         <div class="call-to-action">
             <div class="container-fluid">
@@ -293,8 +317,8 @@
                 </div>
             </div>
         </div>
-        <!-- Call to Action End -->       
-        
+        <!-- Call to Action End -->
+
         <!-- Featured Product Start -->
         <div class="featured-product product">
             <div class="container-fluid">
@@ -315,8 +339,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-1.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-1.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -343,8 +367,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-2.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-2.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -371,8 +395,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-3.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-3.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -399,8 +423,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-4.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-4.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -427,8 +451,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-5.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-5.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -445,8 +469,8 @@
                 </div>
             </div>
         </div>
-        <!-- Featured Product End -->       
-        
+        <!-- Featured Product End -->
+
         <!-- Newsletter Start -->
         <div class="newsletter">
             <div class="container-fluid">
@@ -463,8 +487,8 @@
                 </div>
             </div>
         </div>
-        <!-- Newsletter End -->        
-        
+        <!-- Newsletter End -->
+
         <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="container-fluid">
@@ -485,8 +509,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-6.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-6.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -513,8 +537,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-7.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-7.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -541,8 +565,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-8.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-8.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -569,8 +593,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-9.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-9.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -597,8 +621,8 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="img/product-10.jpg" alt="Product Image">
+                                <a href="user-product-detail.html">
+                                    <img src="/img/product-10.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -616,7 +640,7 @@
             </div>
         </div>
         <!-- Recent Product End -->
-        
+
         <!-- Review Start -->
         <div class="review">
             <div class="container-fluid">
@@ -624,7 +648,7 @@
                     <div class="col-md-6">
                         <div class="review-slider-item">
                             <div class="review-img">
-                                <img src="img/review-1.jpg" alt="Image">
+                                <img src="/img/review-1.jpg" alt="Image">
                             </div>
                             <div class="review-text">
                                 <h2>Customer Name</h2>
@@ -645,7 +669,7 @@
                     <div class="col-md-6">
                         <div class="review-slider-item">
                             <div class="review-img">
-                                <img src="img/review-2.jpg" alt="Image">
+                                <img src="/img/review-2.jpg" alt="Image">
                             </div>
                             <div class="review-text">
                                 <h2>Customer Name</h2>
@@ -666,7 +690,7 @@
                     <div class="col-md-6">
                         <div class="review-slider-item">
                             <div class="review-img">
-                                <img src="img/review-3.jpg" alt="Image">
+                                <img src="/img/review-3.jpg" alt="Image">
                             </div>
                             <div class="review-text">
                                 <h2>Customer Name</h2>
@@ -687,8 +711,8 @@
                 </div>
             </div>
         </div>
-        <!-- Review End -->        
-        
+        <!-- Review End -->
+
         <!-- Footer Start -->
         <div class="footer">
             <div class="container-fluid">
@@ -703,7 +727,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
                             <h2>Follow Us</h2>
@@ -741,27 +765,27 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row payment align-items-center">
                     <div class="col-md-6">
                         <div class="payment-method">
                             <h2>We Accept:</h2>
-                            <img src="img/payment-method.png" alt="Payment Method" />
+                            <img src="/img/payment-method.png" alt="Payment Method" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="payment-security">
                             <h2>Secured By:</h2>
-                            <img src="img/godaddy.svg" alt="Payment Security" />
-                            <img src="img/norton.svg" alt="Payment Security" />
-                            <img src="img/ssl.svg" alt="Payment Security" />
+                            <img src="/img/godaddy.svg" alt="Payment Security" />
+                            <img src="/img/norton.svg" alt="Payment Security" />
+                            <img src="/img/ssl.svg" alt="Payment Security" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Footer End -->
-        
+
         <!-- Footer Bottom Start -->
         <div class="footer-bottom">
             <div class="container">
@@ -776,18 +800,19 @@
                 </div>
             </div>
         </div>
-        <!-- Footer Bottom End -->       
-        
+        <!-- Footer Bottom End -->
+
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/slick/slick.min.js"></script>
-        
+        <script src="/lib/easing/easing.min.js"></script>
+        <script src="/lib/slick/slick.min.js"></script>
+
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/login.js"></script>
     </body>
 </html>
