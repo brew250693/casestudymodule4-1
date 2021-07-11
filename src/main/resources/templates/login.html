@@ -25,8 +25,7 @@
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/js/login.js"></script>
-</head>
+        </head>
 
 <body>
 <!-- Top bar Start -->
@@ -87,7 +86,7 @@
 <!-- Bottom Bar End -->
 
 <!-- Login Start -->
-<form method="post" onsubmit="Login()">
+<form method="post" >
     <div class="login">
         <div class="container">
             <div class="row">
@@ -108,7 +107,7 @@
                                            size="300px">
                                 </div>
                                 <div class="col-md-12">
-                                    <input class="btn" type="submit" value="Đăng nhập">
+                                    <input class="btn" type="submit" value="Đăng nhập" onsubmit="Login()">
                                 </div>
                                 <div class="col-md-12">
                                     <a href="/register">Chưa có tài khoản ?</a>
