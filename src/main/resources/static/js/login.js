@@ -67,3 +67,8 @@ function Register () {
     });
     event.preventDefault();
 };
+
+function LogoutAdmin(){
+    localStorage.removeItem("userdata");
+    window.location='index';
+};

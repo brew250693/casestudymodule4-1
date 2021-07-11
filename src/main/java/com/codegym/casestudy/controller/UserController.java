@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/product-list")
     public ModelAndView showListProduct() {
-        ModelAndView modelAndView = new ModelAndView("user-product-list");
+        ModelAndView modelAndView = new ModelAndView("/user/user-product-list");
         modelAndView.addObject("products", productService.findAll());
         return modelAndView;
     }
@@ -28,11 +28,23 @@ public class UserController {
     public ModelAndView showListProduct(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
         if (product.isPresent()) {
-            ModelAndView modelAndView = new ModelAndView("user-product-detail");
+            ModelAndView modelAndView = new ModelAndView("/user/user-product-detail");
             modelAndView.addObject("products", product.get());
             return modelAndView;
         } else {
-            return new ModelAndView("/404");
+            return new ModelAndView("error-404");
         }
+    }
+
+    @GetMapping("/edit-profile")
+    public ModelAndView editProfile() {
+        ModelAndView modelAndView = new ModelAndView("/user/user-edit-profile");
+        return modelAndView;
+    }
+
+    @GetMapping("/change-pass")
+    public ModelAndView changePass() {
+        ModelAndView modelAndView = new ModelAndView("/user/user-change-pass");
+        return modelAndView;
     }
 }

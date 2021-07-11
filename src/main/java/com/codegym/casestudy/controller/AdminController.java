@@ -36,7 +36,6 @@ public class AdminController {
         return modelAndView;
     }
 
-
     @PostMapping("/create-category")
     public ModelAndView saveCategory(@ModelAttribute("category") Category category) {
         categoryService.save(category);
@@ -60,7 +59,7 @@ public class AdminController {
             modelAndView.addObject("categories", category.get());
             return modelAndView;
         } else {
-            return new ModelAndView("404");
+            return new ModelAndView("error-404");
         }
     }
 
@@ -82,7 +81,7 @@ public class AdminController {
             return modelAndView;
 
         } else {
-            return new ModelAndView("404");
+            return new ModelAndView("error-404");
         }
     }
 
@@ -128,7 +127,7 @@ public class AdminController {
             modelAndView.addObject("products", product.get());
             return modelAndView;
         } else {
-            return new ModelAndView("404");
+            return new ModelAndView("error-404");
         }
     }
 
@@ -150,7 +149,7 @@ public class AdminController {
             return modelAndView;
 
         } else {
-            return new ModelAndView("404");
+            return new ModelAndView("error-404");
         }
     }
 
