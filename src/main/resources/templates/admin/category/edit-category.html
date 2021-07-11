@@ -7,12 +7,12 @@
 <body>
 <h1>Edit category</h1>
 <p>
-    <a href="/list-category">Category list</a>
+    <a href="/admin/list-category">Category list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/edit-category}" th:object="${categories}" method="post">
+<form th:action="@{/admin/edit-category}" th:object="${categories}" method="post">
     <input th:type="hidden" name="id" th:field="*{id}">
     <table>
         <tr>
