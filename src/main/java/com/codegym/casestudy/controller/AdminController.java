@@ -1,5 +1,6 @@
 package com.codegym.casestudy.controller;
 
+import com.codegym.casestudy.common.FileUploadUtil;
 import com.codegym.casestudy.entity.Category;
 import com.codegym.casestudy.entity.Product;
 import com.codegym.casestudy.service.ICategoryService;
@@ -8,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.File;
 import java.io.IOException;
@@ -104,7 +107,10 @@ public class AdminController {
     }
 
     @PostMapping("/create-product")
-    public ModelAndView saveProduct(@ModelAttribute("product") Product product) {
+    public ModelAndView saveProduct(@ModelAttribute("product") Product product,
+                                    @RequestParam("image") MultipartFile multipartFile) throws IOException{
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        product.setImage(fileName);
         productService.save(product);
         ModelAndView modelAndView = new ModelAndView("/admin/product/create-product");
         modelAndView.addObject("categories",categoryService.findAll());
@@ -113,9 +119,25 @@ public class AdminController {
         return modelAndView;
     }
 
+//    @PostMapping("/create-product")
+//    public RedirectView saveUser(Product product,
+//                                 @RequestParam("image") MultipartFile multipartFile) throws IOException {
+//
+//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//        product.setImage(fileName);
+//
+//        Product savedProduct = productService.save(product);
+//
+//        String uploadDir = "user-photos/" + savedProduct.getId();
+//
+//        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+//
+//        return new RedirectView("/admin/product/create-product", true);
+//    }
+
     @GetMapping("/list-product")
     public ModelAndView showListProduct() {
-        ModelAndView modelAndView = new ModelAndView("/admin/product/list-product");
+        ModelAndView modelAndView = new ModelAndView("admin/product/list-product");
         modelAndView.addObject("products", productService.findAll());
         return modelAndView;
     }

@@ -30,8 +30,9 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void save(Product product) {
+    public Product save(Product product) {
         repository.save(product);
+        return product;
     }
 
     @Override

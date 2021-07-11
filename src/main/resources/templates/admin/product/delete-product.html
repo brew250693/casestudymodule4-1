@@ -10,7 +10,7 @@
 <p>
     <a href="/admin/list-product">Product list</a>
 </p>
-<form th:action="@{/admin/delete-product}" th:object="${products}" method="post">
+<form th:action="@{/delete-product}" th:object="${products}" method="post">
     <input th:type="hidden" name="id" th:field="*{id}">
     <table>
         <tr>

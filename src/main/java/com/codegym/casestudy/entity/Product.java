@@ -27,5 +27,12 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Transient
+    public String getPhotosImagePath() {
+        if (image == null || id == null) return null;
+
+        return "/user-photos/" + id + "/" + image;
+    }
+
 }
 

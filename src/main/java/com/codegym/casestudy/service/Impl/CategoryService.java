@@ -1,6 +1,7 @@
 package com.codegym.casestudy.service.Impl;
 
 import com.codegym.casestudy.entity.Category;
+import com.codegym.casestudy.entity.Product;
 import com.codegym.casestudy.repository.ICategoryRepository;
 import com.codegym.casestudy.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,9 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public void save(Category category) {
+    public Product save(Category category) {
         repository.save(category);
+        return null;
     }
 
     @Override
