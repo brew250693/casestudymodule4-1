@@ -17,8 +17,8 @@
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/slick/slick.css" rel="stylesheet">
-    <link href="lib/slick/slick-theme.css" rel="stylesheet">
+    <link href="/lib/slick/slick.css" rel="stylesheet">
+    <link href="/lib/slick/slick-theme.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
@@ -58,8 +58,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">User Account</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item active">Login</a>
-                            <a href="#" class="dropdown-item">Register</a>
+                            <a href="/login" class="dropdown-item active">Login</a>
+                            <a href="/register" class="dropdown-item">Register</a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
             <div class="col-md-3">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="../static/img/logo.png" alt="Logo">
+                        <img src="/img/logo.png" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -86,7 +86,7 @@
 <!-- Bottom Bar End -->
 
 <!-- Login Start -->
-<form method="post">
+<form method="post" onsubmit="Login()">
     <div class="login">
         <div class="container">
             <div class="row">
@@ -97,12 +97,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>UserName</label>
-                                    <input class="form-control" name="usernameLog" type="text" placeholder="UserName"
+                                    <input class="form-control" name="usernameLog" id="usernameLog" type="text"
+                                           placeholder="UserName"
                                            size="300px">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mật khẩu</label>
-                                    <input class="form-control" name="passwordLog" type="password"
+                                    <input class="form-control" name="passwordLog" id="passwordLog" type="password"
                                            placeholder="Mật khẩu"
                                            size="300px">
                                 </div>
@@ -179,15 +180,15 @@
             <div class="col-md-6">
                 <div class="payment-method">
                     <h2>We Accept:</h2>
-                    <img src="../static/img/payment-method.png" alt="Payment Method"/>
+                    <img src="/img/payment-method.png" alt="Payment Method"/>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="payment-security">
                     <h2>Secured By:</h2>
-                    <img src="../static/img/godaddy.svg" alt="Payment Security"/>
-                    <img src="../static/img/norton.svg" alt="Payment Security"/>
-                    <img src="../static/img/ssl.svg" alt="Payment Security"/>
+                    <img src="/img/godaddy.svg" alt="Payment Security"/>
+                    <img src="/img/norton.svg" alt="Payment Security"/>
+                    <img src="/img/ssl.svg" alt="Payment Security"/>
                 </div>
             </div>
         </div>
@@ -217,10 +218,11 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/slick/slick.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/slick/slick.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>

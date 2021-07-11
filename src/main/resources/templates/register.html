@@ -17,8 +17,8 @@
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/slick/slick.css" rel="stylesheet">
-    <link href="lib/slick/slick-theme.css" rel="stylesheet">
+    <link href="/lib/slick/slick.css" rel="stylesheet">
+    <link href="/lib/slick/slick-theme.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
@@ -77,7 +77,7 @@
             <div class="col-md-3">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="../static/img/logo.png" alt="Logo">
+                        <img src="/img/logo.png" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -87,7 +87,7 @@
 <!-- Bottom Bar End -->
 
 <!-- Register Start -->
-<form method="post">
+<form method="post" onsubmit="Register()">
     <div class="login">
         <div class="container">
             <div class="row">
@@ -98,22 +98,22 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>E-mail</label>
-                                    <input name="emailRes" type="text" placeholder="E-mail"
+                                    <input name="emailRes" id="emailRes" type="text" placeholder="E-mail"
                                            style="width: 100%; margin-bottom: 20px;">
                                 </div>
                                 <div class="col-md-6">
                                     <label>User Name</label>
-                                    <input name="userNameRes" type="text" placeholder="User Name"
+                                    <input name="userNameRes" id="userNameRes" type="text" placeholder="User Name"
                                            style="width: 100%; margin-bottom: 20px;">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mật khẩu</label>
-                                    <input name="passwordRes" type="password" placeholder="Mật khẩu"
+                                    <input name="passwordRes" id="passwordRes" type="password" placeholder="Mật khẩu"
                                            style="width: 100%; margin-bottom: 20px;">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Nhập lại mật khẩu</label>
-                                    <input name="retypePass" type="password" placeholder="Nhập lại mật khẩu"
+                                    <input name="retypePass" id="retypePass" type="password" placeholder="Nhập lại mật khẩu"
                                            style="width: 100%; margin-bottom: 20px;">
                                 </div>
                                 <div class="col-md-12">
@@ -189,15 +189,15 @@
             <div class="col-md-6">
                 <div class="payment-method">
                     <h2>We Accept:</h2>
-                    <img src="../static/img/payment-method.png" alt="Payment Method"/>
+                    <img src="/img/payment-method.png" alt="Payment Method"/>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="payment-security">
                     <h2>Secured By:</h2>
-                    <img src="../static/img/godaddy.svg" alt="Payment Security"/>
-                    <img src="../static/img/norton.svg" alt="Payment Security"/>
-                    <img src="../static/img/ssl.svg" alt="Payment Security"/>
+                    <img src="/img/godaddy.svg" alt="Payment Security"/>
+                    <img src="/img/norton.svg" alt="Payment Security"/>
+                    <img src="/img/ssl.svg" alt="Payment Security"/>
                 </div>
             </div>
         </div>
@@ -227,10 +227,11 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/slick/slick.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/slick/slick.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>
