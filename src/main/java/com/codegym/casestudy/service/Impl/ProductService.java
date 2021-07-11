@@ -2,19 +2,12 @@ package com.codegym.casestudy.service.Impl;
 
 
 import com.codegym.casestudy.entity.Product;
-
 import com.codegym.casestudy.repository.IProductRepository;
 import com.codegym.casestudy.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Optional;
 
 @Service

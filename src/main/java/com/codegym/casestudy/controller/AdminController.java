@@ -5,10 +5,15 @@ import com.codegym.casestudy.entity.Product;
 import com.codegym.casestudy.service.ICategoryService;
 import com.codegym.casestudy.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +25,9 @@ public class AdminController {
 
     @Autowired
     private IProductService productService;
+
+    @Value("${upload.path}")
+    private String fileUpload;
 
     @GetMapping("/create-category")
     public ModelAndView showCreateCateForm() {

@@ -58,6 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers("/static/**", "/templates/**").permitAll();
 
+        http.authorizeRequests().antMatchers("/admin/create-product","/admin/list-product","/admin/edit-product","/admin/delete-product").permitAll();
+
         http.authorizeRequests().antMatchers("/api/auth/**").permitAll();
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.

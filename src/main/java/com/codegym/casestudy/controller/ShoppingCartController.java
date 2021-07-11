@@ -4,7 +4,6 @@ import com.codegym.casestudy.entity.CartItem;
 import com.codegym.casestudy.entity.Product;
 import com.codegym.casestudy.service.IProductService;
 import com.codegym.casestudy.service.cart.ICartService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

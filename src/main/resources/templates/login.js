@@ -1,6 +1,6 @@
 function Login () {
-    let userName = $('#userName-login').val();
-    let passWord = $('#passWord-login').val();
+    let userName = $('#usernameLog').val();
+    let passWord = $('#passwordLog').val();
     let userAccount = {
         userName : userName,
         passWord : passWord
