@@ -24,7 +24,22 @@ public class Product implements Serializable {
     @NotNull
     private Long price, quantity;
 
+    private String avatar;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", avatar='" + avatar + '\'' +
+                ", category=" + category +
+                '}';
+    }
 }
+
