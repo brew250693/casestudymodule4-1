@@ -68,7 +68,7 @@ function Register () {
     event.preventDefault();
 };
 
-function LogoutAdmin(){
+function Logout(){
     localStorage.removeItem("userdata");
     window.location='index';
 };

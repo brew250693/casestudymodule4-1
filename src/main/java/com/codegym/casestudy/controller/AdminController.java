@@ -47,7 +47,7 @@ public class AdminController {
         modelAndView.addObject("message", "New category created successfully");
         return modelAndView;
     }
-    @GetMapping("list-category")
+    @GetMapping("/list-category")
     public ModelAndView showCateList() {
         ModelAndView modelAndView = new ModelAndView("/admin/category/list-category");
         modelAndView.addObject("categories", categoryService.findAll());
@@ -82,7 +82,6 @@ public class AdminController {
             ModelAndView modelAndView = new ModelAndView("/admin/category/delete-category");
             modelAndView.addObject("categories", category.get());
             return modelAndView;
-
         } else {
             return new ModelAndView("error-404");
         }
@@ -141,6 +140,7 @@ public class AdminController {
         modelAndView.addObject("products", productService.findAll());
         return modelAndView;
     }
+
     @GetMapping("/edit-product/{id}")
     public ModelAndView showEditProductForm(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
