@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create product</title>
+</head>
+<body>
+<h1>Create product</h1>
+<p>
+    <a href="/admin/list-product">Product list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/admin/create-product}" th:object="${products}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text" th:field="*{quantity}"/></td>
+        </tr>
+        <tr>
+            <th>Category Name:</th>
+            <td>
+                <select  th:field="*{category}">
+                    <th:block th:each="c: ${categories}">
+                        <option th:value="${c.id}" th:text="${c.name}"></option>
+                    </th:block>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Picture:</th>
+            <td>
+                <a th:href="@{/uploadOneFile}">Upload File</a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create product"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

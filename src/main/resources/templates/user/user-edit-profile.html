@@ -21,11 +21,7 @@
     <link href="/lib/slick/slick-theme.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/js/login.js"></script>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,13 +50,22 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="/user-home" class="nav-item nav-link">Trang chủ</a>
+                    <a href="/user/user-product-list" class="nav-item nav-link">Danh sách sản phẩm</a>
+                    <a href="/user/user-product-detail" class="nav-item nav-link">Chi tiết sản phẩm</a>
+                    <a href="/user/cart" class="nav-item nav-link">Giỏ hàng</a>
+                    <a href="/user/checkout" class="nav-item nav-link">Thanh toán</a>
+                </div>
                 <div class="navbar-nav ml-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Tài khoản</a>
                         <div class="dropdown-menu">
-                            <a href="/login" class="dropdown-item active">Đăng nhập</a>
-                            <a href="/register" class="dropdown-item">Đăng ký</a>
+                            <a href="/user/user-edit-profile" class="dropdown-item active">Thay đổi thông tin</a>
+                            <a href="/user/user-change-pass" class="dropdown-item">Đổi mật khẩu</a>
+                            <a href="/logout" class="dropdown-item" onsubmit="Logout()">Đăng xuất</a>
                         </div>
                     </div>
                 </div>
@@ -76,8 +81,22 @@
         <div class="row align-items-center">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="/">
+                    <a href="user/user-home">
                         <img src="/img/logo.png" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                    <button><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="user">
+                    <a href="user/cart" class="btn cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>(0)</span>
                     </a>
                 </div>
             </div>
@@ -86,42 +105,26 @@
 </div>
 <!-- Bottom Bar End -->
 
-<!-- Login Start -->
-<form method="post" onsubmit="Login()">
-    <div class="login">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <center>
-                        <div class="login-form">
-                            <h2>Đăng nhập</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>UserName</label>
-                                    <input class="form-control" name="usernameLog" id="usernameLog" type="text" placeholder="UserName"
-                                           size="300px">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mật khẩu</label>
-                                    <input class="form-control" name="passwordLog" id="passwordLog" type="password"
-                                           placeholder="Mật khẩu"
-                                           size="300px">
-                                </div>
-                                <div class="col-md-12">
-                                    <input class="btn" type="submit" value="Đăng nhập">
-                                </div>
-                                <div class="col-md-12">
-                                    <a href="/register">Chưa có tài khoản ?</a>
-                                </div>
-                            </div>
-                        </div>
-                    </center>
-                </div>
+<!-- Account Details Start -->
+<center>
+    <div class="container">
+        <h2>Account Details</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label>E-mail</label>
+                <input name="emailChange" id="emailChange" type="text">
+            </div>
+            <div class="col-md-6">
+                <label>User Name</label>
+                <input name="userNameChange" id="userNameChange" type="text">
+            </div>
+            <div class="col-md-12">
+                <input class="btn" type="submit" value="Cập nhật thông tin"/>
             </div>
         </div>
     </div>
-</form>
-<!-- Login End -->
+</center>
+<!-- Account Details End -->
 
 <!-- Footer Start -->
 <div class="footer">
